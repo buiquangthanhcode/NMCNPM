@@ -1,3 +1,4 @@
+//import icon from library
 import {
   faBed,
   faCalendarDays,
@@ -19,6 +20,7 @@ import { AuthContext } from "../../context/AuthContext";
 
 const Header = ({ type }) => {
   console.log("Header")
+<<<<<<< HEAD
   const [destination, setDestination] = useState(""); // update state destination 
   const [openDate, setOpenDate] = useState(false); // update setOpenDate
   const [dates, setDates] = useState([  // setDates
@@ -30,12 +32,26 @@ const Header = ({ type }) => {
   ]);
 
   const [openOptions, setOpenOptions] = useState(false); 
+=======
+  const [destination, setDestination] = useState("");
+ 
+  const [openDate, setOpenDate] = useState(false); // ngày bắt đầu tính từ thời điểm hiện tại 
+  const [dates, setDates] = useState([ // thời gian lưu trú của khách
+  {
+    startDate: new Date(),
+    endDate: new Date(),
+    key: "selection",
+  },
+]);
+  const [openOptions, setOpenOptions] = useState(false);
+>>>>>>> b3d37e96b7b315f867f58ea685237a00dfd15622
   const [options, setOptions] = useState({
     adult: 1,
     children: 0,
     room: 1,
   });
 
+<<<<<<< HEAD
   const navigate = useNavigate(); //using navigate to forward website 
   const { user } = useContext(AuthContext); // take user who accessing website
 
@@ -43,82 +59,108 @@ const Header = ({ type }) => {
   function handleOption(name, operation) {
     setOptions(function (prev) {
       return {
+=======
+  const navigate = useNavigate(); // foward website 
+  const { user } = useContext(AuthContext); // take user who accessing website
+
+
+
+  // operation is d(giảm) và i (increas) tăng giảm phòng
+  function handleOption(name, operation) {
+    setOptions((prev) => {
+      console.log((prev));
+      // lay het tat ca cac du lieu 
+      return {  
+>>>>>>> b3d37e96b7b315f867f58ea685237a00dfd15622
         ...prev,
         [name]: operation === "i" ? options[name] + 1 : options[name] - 1,
       };
     });
   }
 
-  const { dispatch } = useContext(SearchContext);
+  const { dispatch } = useContext(SearchContext); // search hotel 
 
-  const handleSearch = () => {
+  function handleSearch() {
+    
     dispatch({ type: "NEW_SEARCH", payload: { destination, dates, options } });
     navigate("/hotels", { state: { destination, dates, options } });
-  };
+  }
 
   return (
     <div className="header">
       <div
+      // if list show header to user (icon: bed, car, plane)  --> here we can update subpage 
         className={
           type === "list" ? "headerContainer listMode" : "headerContainer"
         }
       >
         <div className="headerList">
           <div className="headerListItem active">
+<<<<<<< HEAD
             <FontAwesomeIcon icon={faBed} /> 
             <span>Stays</span>
+=======
+            <FontAwesomeIcon icon={faBed} />  
+            <span>Nơi ở</span>
+>>>>>>> b3d37e96b7b315f867f58ea685237a00dfd15622
           </div>
           <div className="headerListItem">
             <FontAwesomeIcon icon={faPlane} />
-            <span>Flights</span>
+            <span>Chuyến bay</span>
           </div>
           <div className="headerListItem">
             <FontAwesomeIcon icon={faCar} />
-            <span>Car rentals</span>
+            <span>Thuê xe </span>
           </div>
           <div className="headerListItem">
             <FontAwesomeIcon icon={faBed} />
-            <span>Attractions</span>
+            <span>Địa điểm thuê xoa</span>
           </div>
           <div className="headerListItem">
             <FontAwesomeIcon icon={faTaxi} />
-            <span>Airport taxis</span>
+            <span>Taxi sân bay</span>
           </div>
         </div>
+        {/* () below only have True or False */}
         {type !== "list" && (
           <>
             <h1 className="headerTitle">
-              A lifetime of discounts? It's Genius.
+              Đặt phòng khách sạn đơn giản chỉ với 3 bước
             </h1>
             <p className="headerDesc">
-              Get rewarded for your travels – unlock instant savings of 10% or
-              more with a free Hotel Booking account
+              Tận hưởng kì nghỉ dưỡng của bạn – Đăng kí tài khoản cùng Hotel Booking để được nhận ưu đãi 
             </p>
-            {!user && <button className="headerBtn">Sign in / Register</button>}
+            {!user && <button className="headerBtn">Đăng kí / Đăng nhập</button>}
             <div className="headerSearch">
               <div className="headerSearchItem">
                 <FontAwesomeIcon icon={faBed} className="headerIcon" />
                 <input buiquanghtanh
                   type="text"
-                  placeholder="Where are you going?"
+                  placeholder="Địa điểm khách sạn"
                   className="headerSearchInput"
+<<<<<<< HEAD
                   onChange={(e) => setDestination(e.target.value)} 
                   // input realtime 
+=======
+                  onChange={(e) => setDestination(e.target.value)} ///real time input (e.target.value ) --> gia tri minh nhap vao o tim kiem 
+>>>>>>> b3d37e96b7b315f867f58ea685237a00dfd15622
                 />
               </div>
               <div className="headerSearchItem">
                 <FontAwesomeIcon icon={faCalendarDays} className="headerIcon" />
                 <span
-                  onClick={() => setOpenDate(!openDate)}
+                  onClick={() => setOpenDate(!openDate)} // set value is TRUE OR FALSE
                   className="headerSearchText"
-                >{`${format(dates[0].startDate, "MM/dd/yyyy")} to ${format(
+  
+                >{`${format(dates[0].startDate, "MM/dd/yyyy")} đến ${format( // hn thi ra ngay tuong ung theo thoi diem hien tai khi truy cap websiteie
                   dates[0].endDate,
                   "MM/dd/yyyy"
-                )}`}</span>
+                )}`}
+                </span>
                 {openDate && (
-                  <DateRange
+                  <DateRange // Mở ra 1 calender cho người dùng chọn ngày bắt đầu và ngày kết thúc 
                     editableDateInputs={true}
-                    onChange={(item) => setDates([item.selection])}
+                    onChange={(item) => setDates([item.selection])} 
                     moveRangeOnFirstSelection={false}
                     ranges={dates}
                     className="date"
@@ -131,7 +173,7 @@ const Header = ({ type }) => {
                 <span
                   onClick={() => setOpenOptions(!openOptions)}
                   className="headerSearchText"
-                >{`${options.adult} adult · ${options.children} children · ${options.room} room`}</span>
+                >{`${options.adult} người lớn · ${options.children} trẻ em · ${options.room} phòng`}</span>
                 {openOptions && (
                   <div className="options">
                     <div className="optionItem">
@@ -202,7 +244,7 @@ const Header = ({ type }) => {
               </div>
               <div className="headerSearchItem">
                 <button className="headerBtn" onClick={handleSearch}>
-                  Search
+                  Tìm kiếm  
                 </button>
               </div>
             </div>
