@@ -14,6 +14,7 @@ export const SearchContext = createContext(INITIAL_STATE);
 function SearchReducer(state, action) {
   switch (action.type) {
     case "NEW_SEARCH":
+      console.log("Action payload")
       console.log(action.payload);
       return action.payload; // only send data
     case "RESET_SEARCH":

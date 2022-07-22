@@ -7,15 +7,15 @@ const SearchItem = ({ item }) => {
       <img src={item.photo[0]} alt="" className="siImg" />
       <div className="siDesc">
         <h1 className="siTitle">{item.name}</h1>
-        <span className="siDistance">{item.distance}m cách trung tâm Thành Phố </span>
-        <span className="siTaxiOp">Free airport taxi</span>
+        <span className="siDistance">{item.distance} m cách trung tâm Thành Phố </span>
+        <span className="siTaxiOp">Miễn phí taxi sân bay</span>
         <span className="siSubtitle">
-          Studio Apartment with Air conditioning
+            Khách sạn đầy đủ tiện nghỉ & an ninh 24/7
         </span>
         <span className="siFeatures">{item.desc}</span>
-        <span className="siCancelOp">Free cancellation </span>
+        <span className="siCancelOp">Hủy phòng miễn phí  </span>
         <span className="siCancelOpSubtitle">
-          You can cancel later, so lock in this great price today!
+          Bạn có thể hủy sau,hãy chốt giá ưu đãi này ngay hôm nay!
         </span>
       </div>
       <div className="siDetails">
@@ -25,9 +25,9 @@ const SearchItem = ({ item }) => {
         </div>}
         <div className="siDetailTexts">
           <span className="siPrice">{item.cheapestPrice} VNĐ</span>
-          <span className="siTaxOp">Includes taxes and fees</span>
+          <span className="siTaxOp">Đã bao gồm cả giá và thuế</span>
           <Link to={`/hotels/${item._id}`}>
-          <button className="siCheckButton">See availability</button>
+          <button className="siCheckButton">Chi tiết </button>
           </Link>
         </div>
       </div>
