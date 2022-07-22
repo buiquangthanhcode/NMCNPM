@@ -20,7 +20,6 @@ import { AuthContext } from "../../context/AuthContext";
 
 const Header = ({ type }) => {
   console.log("Header")
-<<<<<<< HEAD
   const [destination, setDestination] = useState(""); // update state destination 
   const [openDate, setOpenDate] = useState(false); // update setOpenDate
   const [dates, setDates] = useState([  // setDates
@@ -31,47 +30,16 @@ const Header = ({ type }) => {
     },
   ]);
 
-  const [openOptions, setOpenOptions] = useState(false); 
-=======
-  const [destination, setDestination] = useState("");
- 
-  const [openDate, setOpenDate] = useState(false); // ngày bắt đầu tính từ thời điểm hiện tại 
-  const [dates, setDates] = useState([ // thời gian lưu trú của khách
-  {
-    startDate: new Date(),
-    endDate: new Date(),
-    key: "selection",
-  },
-]);
-  const [openOptions, setOpenOptions] = useState(false);
->>>>>>> b3d37e96b7b315f867f58ea685237a00dfd15622
-  const [options, setOptions] = useState({
-    adult: 1,
-    children: 0,
-    room: 1,
-  });
-
-<<<<<<< HEAD
   const navigate = useNavigate(); //using navigate to forward website 
-  const { user } = useContext(AuthContext); // take user who accessing website
-
-
-  function handleOption(name, operation) {
-    setOptions(function (prev) {
-      return {
-=======
-  const navigate = useNavigate(); // foward website 
   const { user } = useContext(AuthContext); // take user who accessing website
 
 
 
   // operation is d(giảm) và i (increas) tăng giảm phòng
   function handleOption(name, operation) {
-    setOptions((prev) => {
-      console.log((prev));
+      setOptions((prev) => {
       // lay het tat ca cac du lieu 
       return {  
->>>>>>> b3d37e96b7b315f867f58ea685237a00dfd15622
         ...prev,
         [name]: operation === "i" ? options[name] + 1 : options[name] - 1,
       };
@@ -96,13 +64,10 @@ const Header = ({ type }) => {
       >
         <div className="headerList">
           <div className="headerListItem active">
-<<<<<<< HEAD
             <FontAwesomeIcon icon={faBed} /> 
             <span>Stays</span>
-=======
             <FontAwesomeIcon icon={faBed} />  
             <span>Nơi ở</span>
->>>>>>> b3d37e96b7b315f867f58ea685237a00dfd15622
           </div>
           <div className="headerListItem">
             <FontAwesomeIcon icon={faPlane} />
@@ -138,12 +103,12 @@ const Header = ({ type }) => {
                   type="text"
                   placeholder="Địa điểm khách sạn"
                   className="headerSearchInput"
-<<<<<<< HEAD
+
                   onChange={(e) => setDestination(e.target.value)} 
                   // input realtime 
-=======
+
                   onChange={(e) => setDestination(e.target.value)} ///real time input (e.target.value ) --> gia tri minh nhap vao o tim kiem 
->>>>>>> b3d37e96b7b315f867f58ea685237a00dfd15622
+
                 />
               </div>
               <div className="headerSearchItem">
