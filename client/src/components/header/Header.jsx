@@ -41,9 +41,12 @@ const Header = ({ type }) => {
   const { user } = useContext(AuthContext); // take user who accessing website
 
 
+
+  // operation is d(giảm) và i (increas) tăng giảm phòng
   function handleOption(name, operation) {
-    setOptions(function (prev) {
-      return {
+      setOptions((prev) => {
+      // lay het tat ca cac du lieu 
+      return {  
         ...prev,
         [name]: operation === "i" ? options[name] + 1 : options[name] - 1,
       };
@@ -68,6 +71,7 @@ const Header = ({ type }) => {
       >
         <div className="headerList">
           <div className="headerListItem active">
+  
             <FontAwesomeIcon icon={faBed} />  
             <span>Nơi ở</span>
           </div>
