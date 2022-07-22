@@ -1,14 +1,16 @@
 import { createContext, useEffect, useReducer } from "react";
-
+//Each website has a local store data , so we have method getItem to get attribute "user"(to know user who logging in website)
 const INITIAL_STATE = {
-  user: JSON.parse(localStorage.getItem("user")) || null,
+  user: JSON.parse(localStorage.getItem("user")) || null, 
   loading: false,
   error: null,
 };
+// using contex API 
+export const AuthContext = createContext(INITIAL_STATE); 
 
-export const AuthContext = createContext(INITIAL_STATE);
 
-const AuthReducer = (state, action) => {
+// function alway return new state 
+function AuthReducer(state, action) { // here we should Reducer to code Auth instead of UseState
   switch (action.type) {
     case "LOGIN_START":
       return {
@@ -37,12 +39,15 @@ const AuthReducer = (state, action) => {
     default:
       return state;
   }
-};
+}
 
-export const AuthContextProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(AuthReducer, INITIAL_STATE);
-
-  useEffect(() => {
+// because AuthContextProvider so {children} is child component in react
+export function AuthContextProvider({ children }) {
+  const [state, dispatch] = useReducer(AuthReducer, INITIAL_STATE); // like action
+  console.log(state)
+  console.log("AuthContext: ")
+  console.log(dispatch)
+  useEffect(function () {
     localStorage.setItem("user", JSON.stringify(state.user));
   }, [state.user]);
 
@@ -58,4 +63,6 @@ export const AuthContextProvider = ({ children }) => {
       {children}
     </AuthContext.Provider>
   );
-};
+}
+
+

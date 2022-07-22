@@ -1,6 +1,7 @@
 import "./mailList.css"
 
 const MailList = () => {
+  console.log("MailList")
   return (
     <div className="mail">
       <h1 className="mailTitle">Save time, save money!</h1>

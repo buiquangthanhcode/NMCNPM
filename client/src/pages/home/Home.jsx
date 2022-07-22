@@ -8,6 +8,7 @@ import PropertyList from "../../components/propertyList/PropertyList";
 import "./home.css";
 
 const Home = () => {
+  console.log("Home")
   return (
     <div>
       <Navbar />

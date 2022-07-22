@@ -1,6 +1,7 @@
 import "./footer.css";
 
 const Footer = () => {
+  console.log("Footer")
   return (
     <div className="footer">
       <div className="fLists">
