@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import "./searchItem.css";
 
-const SearchItem = ({ item }) => {
+// truyền tham số item 
+function SearchItem({ item }) {
   return (
     <div className="searchItem">
       <img src={item.photo[0]} alt="" className="siImg" />
@@ -10,7 +11,7 @@ const SearchItem = ({ item }) => {
         <span className="siDistance">{item.distance} m cách trung tâm Thành Phố </span>
         <span className="siTaxiOp">Miễn phí taxi sân bay</span>
         <span className="siSubtitle">
-            Khách sạn đầy đủ tiện nghỉ & an ninh 24/7
+          Khách sạn đầy đủ tiện nghỉ & an ninh 24/7
         </span>
         <span className="siFeatures">{item.desc}</span>
         <span className="siCancelOp">Hủy phòng miễn phí  </span>
@@ -27,12 +28,12 @@ const SearchItem = ({ item }) => {
           <span className="siPrice">{item.cheapestPrice} VNĐ</span>
           <span className="siTaxOp">Đã bao gồm cả giá và thuế</span>
           <Link to={`/hotels/${item._id}`}>
-          <button className="siCheckButton">Chi tiết </button>
+            <button className="siCheckButton">Chi tiết </button>
           </Link>
         </div>
       </div>
     </div>
   );
-};
+}
 
-export default SearchItem;
+export default  SearchItem;

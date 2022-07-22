@@ -15,7 +15,8 @@ const PropertyList = () => {
   images.map((img,i)=>{
     console.log(data[i])
   })
-    
+
+// chỉ số index i ở đây có được do method map in react , cần update các hình ảnh như trên 
   return (
     <div className="pList">
       {loading ? (
@@ -24,7 +25,7 @@ const PropertyList = () => {
         <>
           {data &&
             images.map((img,i) => (
-              <div className="pListItem" key={i}>
+              <div className="pListItem" key={i}> 
                 <img
                   src={img}
                   alt=""
@@ -32,7 +33,7 @@ const PropertyList = () => {
                 />
                 <div className="pListTitles">
                   <h1>{data[i]?.type}</h1>
-                  <h2>{data[i]?.count} {data[i]?.type}</h2>
+                  <h2>{data[i]?.count} {data[i]?.type}</h2> 
                 </div>
               </div>
             ))}
