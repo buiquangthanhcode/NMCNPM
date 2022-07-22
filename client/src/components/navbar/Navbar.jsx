@@ -1,7 +1,9 @@
 import "./navbar.css";
-import React from "react";
+import "./navbar.css";
+import {Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthContext";
 const Navbar = () => {
-<<<<<<< HEAD
   const { user } = useContext(AuthContext); // check user who accessing website
   console.log("Navbar")
   console.log(user)
@@ -21,16 +23,6 @@ const Navbar = () => {
               </Link>
             </div>
         )}
-=======
-
-  return (
-    <div className="navbar">
-      <div className="navContainer">
-        <span className="logo">Book4Fun.com</span>
-        <div className="navItems">
-          <button className="navButton">Đăng nhập/ Đăng ký</button>
-        </div>
->>>>>>> f5636cfb2b18b27b61f8f22d8dbc07b4bd3b96c6
       </div>
     </div>
   );

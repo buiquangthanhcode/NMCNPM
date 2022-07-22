@@ -19,34 +19,35 @@ import { AuthContext } from "../../context/AuthContext";
 
 const Header = ({ type }) => {
   console.log("Header")
-  const [destination, setDestination] = useState("");
-  const [openDate, setOpenDate] = useState(false);
-  const [dates, setDates] = useState([
+  const [destination, setDestination] = useState(""); // update state destination 
+  const [openDate, setOpenDate] = useState(false); // update setOpenDate
+  const [dates, setDates] = useState([  // setDates
     {
       startDate: new Date(),
       endDate: new Date(),
       key: "selection",
     },
   ]);
-  const [openOptions, setOpenOptions] = useState(false);
+
+  const [openOptions, setOpenOptions] = useState(false); 
   const [options, setOptions] = useState({
     adult: 1,
     children: 0,
     room: 1,
   });
 
-  const navigate = useNavigate();
-  const { user } = useContext(AuthContext);
+  const navigate = useNavigate(); //using navigate to forward website 
+  const { user } = useContext(AuthContext); // take user who accessing website
 
 
-  const handleOption = (name, operation) => {
-    setOptions((prev) => {
+  function handleOption(name, operation) {
+    setOptions(function (prev) {
       return {
         ...prev,
         [name]: operation === "i" ? options[name] + 1 : options[name] - 1,
       };
     });
-  };
+  }
 
   const { dispatch } = useContext(SearchContext);
 
@@ -64,7 +65,7 @@ const Header = ({ type }) => {
       >
         <div className="headerList">
           <div className="headerListItem active">
-            <FontAwesomeIcon icon={faBed} />
+            <FontAwesomeIcon icon={faBed} /> 
             <span>Stays</span>
           </div>
           <div className="headerListItem">
@@ -97,11 +98,12 @@ const Header = ({ type }) => {
             <div className="headerSearch">
               <div className="headerSearchItem">
                 <FontAwesomeIcon icon={faBed} className="headerIcon" />
-                <input
+                <input buiquanghtanh
                   type="text"
                   placeholder="Where are you going?"
                   className="headerSearchInput"
-                  onChange={(e) => setDestination(e.target.value)}
+                  onChange={(e) => setDestination(e.target.value)} 
+                  // input realtime 
                 />
               </div>
               <div className="headerSearchItem">
@@ -150,7 +152,7 @@ const Header = ({ type }) => {
                           onClick={() => handleOption("adult", "i")}
                         >
                           +
-                        </button>
+                        </button> 
                       </div>
                     </div>
                     <div className="optionItem">
