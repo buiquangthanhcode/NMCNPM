@@ -1,10 +1,7 @@
 import "./navbar.css";
 import "./navbar.css";
-<<<<<<< HEAD
-import {Link } from "react-router-dom";
-=======
+
 import { Link } from "react-router-dom";
->>>>>>> b3d37e96b7b315f867f58ea685237a00dfd15622
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 const Navbar = () => {
