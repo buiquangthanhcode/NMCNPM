@@ -101,11 +101,12 @@ const Header = ({ type }) => {
             <p className="headerDesc">
               Tận hưởng kì nghỉ dưỡng của bạn – Đăng kí tài khoản cùng Hotel Booking để được nhận ưu đãi 
             </p>
+            
             {!user && <button className="headerBtn">Đăng kí / Đăng nhập</button>}
             <div className="headerSearch">
               <div className="headerSearchItem">
                 <FontAwesomeIcon icon={faBed} className="headerIcon" />
-                <input buiquanghtanh
+                <input 
                   type="text"
                   placeholder="Địa điểm khách sạn"
                   className="headerSearchInput"

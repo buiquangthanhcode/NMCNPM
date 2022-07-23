@@ -29,6 +29,7 @@ app.use(cookieParser()) // parse body in request
 app.use(express.json()) // using format json
 // dinh tuyen website]
 
+
 app.use("/api/auth",authRoute)
 app.use("/api/users",usersRoute)
 app.use("/api/hotels",hotelsRoute)
@@ -51,6 +52,4 @@ app.listen(8800,function () {
     connect();
     console.log("Connected to backend");
   }
-    ); 
-
-
+    );
