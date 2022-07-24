@@ -11,7 +11,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
 const FeaturedProperties = () => {
-  const { data, loading, error } = useFetch("http://localhost:8800/api/hotels?featured=true&limit=15");
+  const { data, loading, error } = useFetch("http://localhost:8800/api/hotels?featured=true&limit=6");
   return (
     <div className="fp">
       {loading?"Loading":<>
