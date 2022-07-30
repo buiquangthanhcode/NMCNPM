@@ -11,16 +11,11 @@ const Navbar = () => {
     <div className="navbar">
       <div className="navContainer">
         <Link to="/" style={{ color: "inherit", textDecoration: "none" }}>
-          <span className="logo">Hotel Booking</span>
+          <span className="logo">Book4Fun.com</span>
         </Link >
         {user ? user.username : ( // can link to here user profile
             <div className="navItems">
-              <Link to="/login">
-              <button className="navButton">Đăng nhập</button>
-              </Link>
-              <Link to="/register">
-              <button className="navButton">Đăng kí</button>
-              </Link>
+              <Link to="/login"><button className="navButton">Đăng nhập/ Đăng ký</button></Link>
             </div>  
         )}
       </div>
