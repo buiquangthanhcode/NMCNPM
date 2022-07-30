@@ -1,3 +1,4 @@
+
 .featured{
   width: 100%;
   max-width: 1024px;
@@ -6,24 +7,21 @@
   gap: 20px;
   z-index: 1;
 }
-
 .featuredItem{
-  position: relative;
-  color: white;
-  border-radius: 10px;
-  overflow: hidden;
-  height: 250px;
-  flex:1
-}
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 500px;
 
+}
 .featuredImg{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 128px;
+  height: 128px;
+  border-radius: 50%;
+}
+.featuredInfo{
+  text-align: center;
+  
 }
 
-.featuredTitles{
-  position: absolute;
-  bottom: 20px;
-  left: 20px;
-}
