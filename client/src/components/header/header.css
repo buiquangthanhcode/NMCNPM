@@ -37,7 +37,7 @@
 
 .headerBanner {
   width: 100%;
-  height: 480px;
+  height: 430px;
   background-image: url("https://storage.googleapis.com/tripi-assets/mytour/banner/banner_hotel.jpg");
 }
 
@@ -90,7 +90,7 @@
   color: #1A202C;
   font-weight: 500;
   cursor: pointer;
-  font-size: 1.6rem;
+  font-size: 1.0rem;
 }
 
 .headerSearchBtn {
@@ -144,7 +144,7 @@
   margin: 10px;
 }
 .optionText{
-  font-size: 1.4rem;
+  font-size: 1.0rem;
   font-weight: 600;
 }
 .optionCounter {

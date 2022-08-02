@@ -22,6 +22,11 @@ const Login = () => {
     username: undefined,
     password: undefined,
   });
+  const [credentialsRegister, setCredentialsRegister] = useState({
+    username: undefined,
+    email:undefined,
+    password: undefined,
+  });
 
   const { loading, error, dispatch } = useContext(AuthContext);
 
@@ -29,6 +34,9 @@ const Login = () => {
 
   const handleChange = (e) => {
     setCredentials((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+  };
+  const handleChangeRegister = (e) => {
+    setCredentialsRegister((prev) => ({ ...prev, [e.target.id]: e.target.value }));
   };
 
   const handleClick = async (e) => {
@@ -42,6 +50,18 @@ const Login = () => {
     } catch (err) {
       dispatch({ type: "LOGIN_FAILURE", payload: err.response.data });
     }
+  };
+  const handleClickRegister = async (e) => {
+        e.preventDefault();
+        console.log(credentialsRegister)
+        try {
+            
+          const res = await axios.post("http://localhost:8800/api/auth/register", credentialsRegister);
+          navigate("/")
+          
+        } catch (err) {
+            console.log("Loi")
+        }
   };
 
 
@@ -58,6 +78,7 @@ const Login = () => {
             type="text"
             className="input-field"
             placeholder="Tên đăng nhập"
+            id="username"
             required
             onChange={handleChange}
           />
@@ -65,6 +86,7 @@ const Login = () => {
             type="password"
             className="input-field"
             placeholder="Mật khẩu"
+            id="password"
             required
             onChange={handleChange}
           />
@@ -72,11 +94,11 @@ const Login = () => {
           {error && <span>{error.message}</span>}
         </form>
         <form style={{ position: "absolute", left: `${register}px` }} id="register" className="input-group">
-          <input type="text" className="input-field" placeholder="Tên người dùng" required />
-          <input type="text" className="input-field" placeholder="Tên đăng nhập" required />
-          <input type="password" className="input-field" placeholder="Mật khẩu" required />
-          <input type="password" className="input-field" placeholder="Xác nhận mật khẩu" required />
-          <button type="submit" className="submit-btn">Đăng ký</button>
+          <input type="text" className="input-field" placeholder="Tên người dùng"  id="username" required onChange={handleChangeRegister}/>
+          <input type="text" className="input-field" placeholder="Email" id="email" required onChange={handleChangeRegister} />
+          <input type="password" className="input-field" placeholder="Mật khẩu" id="password" required onChange={handleChangeRegister}/>
+          <input type="password" className="input-field" placeholder="Xác nhận mật khẩu" id="cpassword" required onChange={handleChangeRegister}/>
+          <button type="submit" className="submit-btn"  onClick={handleClickRegister}>Đăng ký</button>
         </form>
       </div>
     </div>
