@@ -28,7 +28,7 @@ app.use(cors()) // Use this after the variable declaration
 app.use(cookieParser()) // parse body in request
 app.use(express.json()) // using format json
 // dinh tuyen website]
-
+app.use(cors({ origin: true, credentials: true }));
 
 app.use("/api/auth",authRoute)
 app.use("/api/users",usersRoute)
@@ -53,3 +53,5 @@ app.listen(8800,function () {
     console.log("Connected to backend");
   }
     );
+
+

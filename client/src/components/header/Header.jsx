@@ -52,7 +52,6 @@ const Header = ({ type }) => {
       };
     });
   }
-
   const { dispatch } = useContext(SearchContext); // search hotel 
 
   function handleSearch() {

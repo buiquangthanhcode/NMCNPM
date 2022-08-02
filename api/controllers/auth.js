@@ -9,7 +9,7 @@ export async function register(req, res, next) {
     const hash = bcrypt.hashSync(req.body.password, salt);
   
     const newUser = new User({
-      ...req.body,
+      ...req.body, // take all infor of user
       password: hash,
     });
 
@@ -39,16 +39,19 @@ export async function login(req, res, next) {
       process.env.JWT // authentication using services JWT
 
     );
-
-
     const { password, isAdmin, ...otherDetails } = user._doc; // oject destructing
     res
-      .cookie("access_token", token, {
-        httpOnly: true,
-      })
-      .status(200)
-      .json({ details: { ...otherDetails }, isAdmin });
-  } catch (err) {
+    .cookie("access_token", token, {
+      httpOnly: true,
+    })
+    .status(200)
+    .json({ details: { ...otherDetails }, isAdmin });
+
+      console.log(token)
+      console.log("thanh cong token")
+      console.log(req.cookie);  
+  
+  } catch (err) { 
     next(err);
   }
 }
