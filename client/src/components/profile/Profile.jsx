@@ -4,6 +4,10 @@ import {useState} from 'react';
 import {faUser,faCaretDown} from '@fortawesome/free-solid-svg-icons';
 import './profile.css';
 export default function Profile({user}) {
+    const logout = () => {
+        localStorage.removeItem('user');
+        window.location.reload();
+    }
     const [open, setOpen] = useState(false);
     let name='menu';
     if(open){
@@ -23,7 +27,7 @@ export default function Profile({user}) {
           <li><a href="/tai-khoan">Tài khoản</a></li>
           <li><a href="/tai-khoan/khach-san-yeu-thich">Yêu thích</a></li>
           <li><a href="/tai-khoan/don-phong">Đơn phòng</a></li>
-          <li><a href="/">Đăng xuất</a></li>
+          <li><a href="#" onClick={logout}>Đăng xuất</a></li>
         </ul>
       </div>
     </div>
