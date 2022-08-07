@@ -1,20 +1,25 @@
 import './navbar.css';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
-import { AuthContext } from '../../context/AuthContext.js';
+import { AuthContext } from '../../context/AuthContext';
+import Profile from '../profile/Profile';
 const Navbar = () => {
-  const { user } = useContext(AuthContext);
-
+  const { user } = useContext(AuthContext); // check user who accessing webNavbar.jsxsite
+  console.log('Navbar');
+  console.log(user);
   return (
     <div className="navbar">
       <div className="navContainer">
         <Link to="/" style={{ color: 'inherit', textDecoration: 'none' }}>
-          <span className="logo">Hotel Booking</span>
+          <span className="logo">Book4Fun.com</span>
         </Link>
-        {user ? user.username : (
+        {user ? (
+          <Profile user={user.username} />
+        ) : (
           <div className="navItems">
-            <button className="navButton">Register</button>
-            <button className="navButton">Login</button>
+            <Link to="/login">
+              <button className="navButton">Đăng nhập/ Đăng ký</button>
+            </Link>
           </div>
         )}
       </div>
