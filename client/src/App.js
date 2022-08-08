@@ -8,7 +8,12 @@ import Hotel from "./pages/hotel/Hotel";
 import List from "./pages/list/List";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
+import Payment from "./pages/payment/Payment";
+import PaymentSucess from "./pages/payment/PaymentSucess";
+import PaymentCancle from "./pages/payment/PaymenCancle";
+
 function App() {
+ 
   return (
     <BrowserRouter>
       <Routes>
@@ -20,6 +25,10 @@ function App() {
         <Route path="/userProfile" element={<Register/>}/>
         <Route path="/viewHistory" element={<Register/>}/>
         <Route path="/viewListFavorist" element={<Register/>}/>
+       < Route path="/payment" element={<Payment/>}/>
+       < Route path="/payment/success" element={<PaymentSucess/>}/>
+       < Route path="/payment/cancel" element={<PaymentCancle/>}/>
+      
       </Routes>
     </BrowserRouter>
   );

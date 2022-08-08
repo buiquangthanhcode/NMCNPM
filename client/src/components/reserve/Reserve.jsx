@@ -7,8 +7,12 @@ import { useContext, useState } from "react";
 import { SearchContext } from "../../context/SearchContext";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Paypal from "../../pages/payment/Payment"; 
 
-const Reserve = ({ setOpen, hotelId }) => {
+
+
+const Reserve = ({ setOpen, hotelId ,price,days}) => {
+  const [checkout, setCheckOut] = useState(false);
   const [selectedRooms, setSelectedRooms] = useState([]);
   const { data, loading, error } = useFetch(`http://localhost:8800/api/hotels/room/${hotelId}`);
   console.log(data)
@@ -51,6 +55,9 @@ const Reserve = ({ setOpen, hotelId }) => {
   const navigate = useNavigate();
 
   const handleClick = async () => {
+   
+    console.log("thanh cong")
+    
     try {
       await Promise.all(
         selectedRooms.map((roomId) => {
@@ -61,9 +68,14 @@ const Reserve = ({ setOpen, hotelId }) => {
         })
       );
       setOpen(false);
-      navigate("/");
+      console.log("tiep thanh cong")
+     
+      navigate('/payment',{state:{_data:data,price,days}});
+  
     } catch (err) {}
   };
+
+
   return (
     <div className="reserve">
       <div className="rContainer">
@@ -98,9 +110,12 @@ const Reserve = ({ setOpen, hotelId }) => {
             </div>
           </div>
         ))}
-        <button onClick={handleClick} className="rButton">
+
+          <button onClick={handleClick} className="rButton">
           Reserve Now!
         </button>
+      
+        
       </div>
     </div>
   );
