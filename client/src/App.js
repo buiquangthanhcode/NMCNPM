@@ -8,6 +8,10 @@ import Hotel from "./pages/hotel/Hotel";
 import List from "./pages/list/List";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
+import Payment from "./pages/payment/Payment";
+import PaymentSuccess from "./pages/paymentSuccess/PaymentSuccess";
+import PaymentCancle from "./pages/payment/PaymentCancle";
+import PaymentUI from "./pages/payment/PaymentUI"
 function App() {
   return (
     <BrowserRouter>
@@ -20,6 +24,10 @@ function App() {
         <Route path="/userProfile" element={<Register/>}/>
         <Route path="/viewHistory" element={<Register/>}/>
         <Route path="/viewListFavorist" element={<Register/>}/>
+        < Route path="/payment" element={<Payment/>}/>
+        < Route path="/success" element={<PaymentSuccess/>}/>
+        < Route path="/cancel" element={<PaymentCancle/>}/>
+        < Route path="/paymentUI" element={<PaymentUI/>}/>
       </Routes>
     </BrowserRouter>
   );

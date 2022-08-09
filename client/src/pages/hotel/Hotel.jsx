@@ -150,7 +150,7 @@ const Hotel = () => {
         </div>
       )}
      
-      {openModal && <Reserve setOpen={setOpenModal} hotelId={id}/>}
+     {openModal && <Reserve setOpen={setOpenModal} hotelId={id} price={days * data.cheapestPrice * options.room} days={days} />}
     </div>
   );
 };
