@@ -17,6 +17,10 @@ function App() {
         <Route path="/userProfile" element={<Register />} />
         <Route path="/viewHistory" element={<Register />} />
         <Route path="/viewListFavorist" element={<Register />} />
+        <Route path="/payment" element={<Payment />} />
+        <Route path="/success" element={<PaymentSuccess />} />
+        <Route path="/cancel" element={<PaymentCancle />} />
+        <Route path="/paymentUI" element={<PaymentUI />} />
       </Routes>
     </BrowserRouter>
   );

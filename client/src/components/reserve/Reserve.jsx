@@ -54,8 +54,9 @@ const Reserve = ({ setOpen, hotelId }) => {
           return res.data;
         })
       );
-      navigate('/');
+
       setOpen(false);
+      navigate('/paymentUI', { state: { _data: data, price, days } });
     } catch (err) {}
   };
   return (
