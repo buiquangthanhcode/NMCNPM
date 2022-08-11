@@ -4,6 +4,10 @@ import Hotel from './pages/hotel/Hotel';
 import List from './pages/list/List';
 import Login from './pages/login/Login';
 import Register from './pages/register/Register';
+import Payment from './pages/payment/Payment'
+import PaymentSuccess from "./pages/paymentSuccess/PaymentSuccess";
+import PaymentCancle from "./pages/payment/PaymentCancle";
+import PaymentUI from "./pages/payment/PaymentUI"
 
 function App() {
   return (
