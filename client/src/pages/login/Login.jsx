@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Popup from "../../components/popup/Popup";
 import { AuthContext } from "../../context/AuthContext";
 import "./login.css";
 
@@ -9,14 +10,14 @@ const Login = () => {
   const [register, setRegister] = useState('');
   const [move, setMove] = useState(0);
   const handleRegister = () => {
-      setLogin(-400);
-      setRegister(50);
-      setMove(110);
+    setLogin(-400);
+    setRegister(50);
+    setMove(110);
   }
   const handleLogin = () => {
-      setLogin(50);
-      setRegister(450);
-      setMove(0);
+    setLogin(50);
+    setRegister(450);
+    setMove(0);
   }
   const [credentials, setCredentials] = useState({
     username: undefined,
@@ -24,7 +25,7 @@ const Login = () => {
   });
   const [credentialsRegister, setCredentialsRegister] = useState({
     username: undefined,
-    email:undefined,
+    email: undefined,
     password: undefined,
   });
 
@@ -52,19 +53,21 @@ const Login = () => {
     }
   };
   const handleClickRegister = async (e) => {
-        e.preventDefault();
-        console.log(credentialsRegister)
-        try {
-            
-          const res = await axios.post("http://localhost:8800/api/auth/register", credentialsRegister);
-          navigate("/")
-          
-        } catch (err) {
-            console.log("Loi")
-        }
+    e.preventDefault();
+    console.log(credentialsRegister)
+    try {
+
+      const res = await axios.post("http://localhost:8800/api/auth/register", credentialsRegister);
+      setOpen([true,"Đăng ký thành công","https://cachbothuocla.vn/wp-content/uploads/2019/03/tick-xanh.png"])
+      handleLogin()
+
+    } catch (err) {
+      setOpen([true,"Đăng ký không thành công","https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Flat_cross_icon.svg/768px-Flat_cross_icon.svg.png"])
+      console.log("Loi")
+    }
   };
 
-
+  const [open, setOpen] = useState([false,"",""]);
   return (
     <div className="log-reg">
       <div className="form-box">
@@ -94,12 +97,17 @@ const Login = () => {
           {error && <span>{error.message}</span>}
         </form>
         <form style={{ position: "absolute", left: `${register}px` }} id="register" className="input-group">
-          <input type="text" className="input-field" placeholder="Tên người dùng"  id="username" required onChange={handleChangeRegister}/>
+          <input type="text" className="input-field" placeholder="Tên người dùng" id="username" required onChange={handleChangeRegister} />
           <input type="text" className="input-field" placeholder="Email" id="email" required onChange={handleChangeRegister} />
-          <input type="password" className="input-field" placeholder="Mật khẩu" id="password" required onChange={handleChangeRegister}/>
-          <input type="password" className="input-field" placeholder="Xác nhận mật khẩu" id="cpassword" required onChange={handleChangeRegister}/>
-          <button type="submit" className="submit-btn"  onClick={handleClickRegister}>Đăng ký</button>
+          <input type="password" className="input-field" placeholder="Mật khẩu" id="password" required onChange={handleChangeRegister} />
+          <input type="password" className="input-field" placeholder="Xác nhận mật khẩu" id="cpassword" required onChange={handleChangeRegister} />
+          <button type="submit" className="submit-btn" onClick={handleClickRegister}>Đăng ký</button>
         </form>
+          { open[0] && <Popup trigger={open[0]} setTrigger={setOpen}>
+            {open[1]}
+            <br/>
+            <img className="imgLogin" src={open[2]} alt=""/>
+          </Popup>}
       </div>
     </div>
   );

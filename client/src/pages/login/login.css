@@ -107,3 +107,10 @@
 #register{
   left: 450px;
 }
+.imgLogin{
+  object-fit: cover;
+  width: 100px;
+  height: 100px;
+  padding-top: 20px;
+
+}
