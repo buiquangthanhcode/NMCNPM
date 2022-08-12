@@ -17,6 +17,12 @@ import { useContext } from 'react';
 
 const Sidebar = () => {
   const { dispatch } = useContext(DarkModeContext);
+
+  const logout = () => {
+    localStorage.removeItem('user');
+    window.location.reload();
+  };
+
   return (
     <div className="sidebar">
       <div className="top">
@@ -69,7 +75,7 @@ const Sidebar = () => {
           </li>
           <li>
             <ExitToAppIcon className="icon" />
-            <span>Logout</span>
+            <span href="#" onClick={logout}>Log out</span>
           </li>
         </ul>
       </div>

@@ -2,16 +2,17 @@ import './newRoom.scss';
 import Sidebar from '../../components/sidebar/Sidebar';
 import Navbar from '../../components/navbar/Navbar';
 import DriveFolderUploadOutlinedIcon from '@mui/icons-material/DriveFolderUploadOutlined';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { roomInputs } from '../../formSource';
 import useFetch from '../../hooks/useFetch';
 import axios from 'axios';
+import { AuthContext } from '../../context/AuthContext';
 
 const NewRoom = () => {
   const [info, setInfo] = useState({});
   const [hotelId, setHotelId] = useState(undefined);
   const [rooms, setRooms] = useState([]);
-
+  const { user } = useContext(AuthContext);
   const { data, loading, error } = useFetch('/hotels');
 
   const handleChange = (e) => {
