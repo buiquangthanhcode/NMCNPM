@@ -118,6 +118,12 @@ export const hotelInputs = [
     type: 'text',
     placeholder: '100',
   },
+  {
+    id: 'owner',
+    label: 'Owner',
+    type: 'text',
+    placeholder: 'None'
+  }
 ];
 
 export const roomInputs = [
