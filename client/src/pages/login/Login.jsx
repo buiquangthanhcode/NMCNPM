@@ -50,6 +50,8 @@ const Login = () => {
       navigate("/")
     } catch (err) {
       dispatch({ type: "LOGIN_FAILURE", payload: err.response.data });
+      setOpen([true,"Sai mật khẩu hoặc tên người dùng không hợp lệ","https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Flat_cross_icon.svg/768px-Flat_cross_icon.svg.png"])
+
     }
   };
   const handleClickRegister = async (e) => {
