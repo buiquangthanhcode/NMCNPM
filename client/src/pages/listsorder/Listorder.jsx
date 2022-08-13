@@ -4,8 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthContext";
 import "./login.css";
 
-
-const Login = () => {
+const Lists = () => {
   const [login, setLogin] = useState('');
   const [register, setRegister] = useState('');
   const [move, setMove] = useState(0);
@@ -45,37 +44,9 @@ const Login = () => {
     dispatch({ type: "LOGIN_START" });
     console.log(credentials)
     try {
-    
       const res = await axios.post("/auth/login", credentials);
-     
-      const getAdmin = await axios.get("/users", credentials);
-      const numberAccount=getAdmin.data.length
-      console.log(credentials.username)
-      let flag=0;
-      var account=getAdmin.data[0]
-      for (let i=0;i<numberAccount;i++)
-      {
-        if(getAdmin.data[i].isAdmin===true)
-        {
-        
-          if(getAdmin.data[i].username.localeCompare(credentials.username)===1)
-          {
-            account=getAdmin.data[i]
-            flag =1;
-          }
-        }
-      }
-      console.log("admin",getAdmin)
-      if(flag===1)
-      {
-      navigate("/representative",{state:{data:account}})
-      }
-      else
-      {
-      navigate("/")
-      }
       dispatch({ type: "LOGIN_SUCCESS", payload: res.data.details });
-     
+      navigate("/")
     } catch (err) {
       dispatch({ type: "LOGIN_FAILURE", payload: err.response.data });
     }
@@ -126,7 +97,7 @@ const Login = () => {
           <input type="text" className="input-field" placeholder="Tên người dùng"  id="username" required onChange={handleChangeRegister}/>
           <input type="text" className="input-field" placeholder="Email" id="email" required onChange={handleChangeRegister} />
           <input type="password" className="input-field" placeholder="Mật khẩu" id="password" required onChange={handleChangeRegister}/>
-          <input type="password" className="input-field" placeholder="Xác nhận mật khẩu" id="cpassword" required onChange={handleChangeRegister}/>
+          {/* <input type="password" className="input-field" placeholder="Xác nhận mật khẩu" id="cpassword" required onChange={handleChangeRegister}/> */}
           <button type="submit" className="submit-btn"  onClick={handleClickRegister}>Đăng ký</button>
         </form>
       </div>
@@ -134,4 +105,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Lists;

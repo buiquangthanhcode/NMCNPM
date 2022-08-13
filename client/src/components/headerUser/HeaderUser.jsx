@@ -32,7 +32,7 @@ export default function HeaderUser({tk,ks,yt})
                     <div className="functionItem">
                         <div className="functionItemTitle">
                             <Link to="/tai-khoan"><button className={active1}>Quản lý tài khoản</button></Link>
-                            <Link to="/tai-khoan/don-phong"><button className={active2}>Đơn phòng</button></Link>
+                            <Link to="/donphong"><button className={active2}>Đơn phòng</button></Link>
                             <button className="functionItemTitleContent">Khách sạn yêu thích</button>
                         </div>
                     </div>

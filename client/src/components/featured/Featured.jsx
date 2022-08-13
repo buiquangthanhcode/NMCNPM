@@ -1,7 +1,12 @@
 import useFetch from "../../hook/useFetch";
 import "./featured.css";
 import SwiperCore,{ Navigation, Pagination, Scrollbar, A11y, Thumbs } from 'swiper';
-
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
@@ -53,11 +58,14 @@ const Featured = () => {
                 >
             {location.map(item=>{
               return(
-                <SwiperSlide className="featuredItem" key={item.id}>
-                    <img src={item.img} alt="" className="featuredImg"/>
+                <SwiperSlide   className="featuredItem" key={item.id}>
+                  <Link to="/paymentUI">
+                    <img   src={item.img} alt="" className="featuredImg"/>
+                  </Link>
                     <div className="featuredInfo">
                         <h1>{item.city}</h1>
                         <h2>{item.amount} khách sạn</h2>
+                        
                     </div>
                 </SwiperSlide>
             )

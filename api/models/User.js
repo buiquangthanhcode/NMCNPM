@@ -5,7 +5,7 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: true,
       unique: true,
-    },
+    },                                        
     email: {
       type: String,
       required: true,
@@ -22,17 +22,24 @@ const UserSchema = new mongoose.Schema(
     },
     country: {
       type: String,
+      default: "VietNam",
      
     },
     img: {
       type: String,
+      default: "https://thumbs.dreamstime.com/b/default-avatar-profile-image-vector-social-media-user-icon-potrait-182347582.jpg",
     },
     city: {
       type: String,
-      
+      default:"Ho Chi Minh"
     },
     phone: {
       type: String,
+      default:"1234567890"
+    },
+    hotelname: {
+      type: String,
+      default:"Hotel Sai Gon"
      
     },
    

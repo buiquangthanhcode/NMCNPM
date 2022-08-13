@@ -68,7 +68,7 @@ const Hotel = () => {
   return (
     <div>
       <Navbar />
-      <Header type="list" />
+      <div type="list" />
       {loading ? (
         "loading"
       ) : (
@@ -101,19 +101,16 @@ const Hotel = () => {
             </div>
           )}
           <div className="hotelWrapper">
-            <button className="bookNow">Reserve or Book Now!</button>
+            <button className="bookNow">Nhận lịch đặt phòng ngay</button>
             <h1 className="hotelTitle">{data.name}</h1>
             <div className="hotelAddress">
               <FontAwesomeIcon icon={faLocationDot} />
               <span>{data.address}</span>
             </div>
             <span className="hotelDistance">
-              Excellent location – {data.distance}m from center
+              Vị trí thuận lợi , cách trung tâm {data.distance} m 
             </span>
-            <span className="hotelPriceHighlight">
-              Book a stay over ${data.cheapestPrice} at this property and get a
-              free airport taxi
-            </span>
+           
             <div className="hotelImages">
               {data.photo?.map((photo, i) => (
                 <div className="hotelImgWrapper" key={i}>
@@ -132,16 +129,15 @@ const Hotel = () => {
                 <p className="hotelDesc">{data.desc}</p>
               </div>
               <div className="hotelDetailsPrice">
-                <h1>Perfect for a {days}-night stay!</h1>
+                <h1>Giá ưu đãi {days} - 1 đêm!</h1>
                 <span>
-                  Located in the real heart of Krakow, this property has an
-                  excellent location score of 9.8!
+                 Đăng kí đặt phòng dễ dàng
                 </span>
                 <h2>
                   <b>${days * data.cheapestPrice * options.room}</b> ({days}{" "}
-                  nights)
+                  đêm)
                 </h2>
-                <button onClick={handleClick}>Reserve or Book Now!</button>
+                <button onClick={handleClick}>Đặt Phòng </button>
               </div>
             </div>
           </div>
