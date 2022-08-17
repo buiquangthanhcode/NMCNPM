@@ -68,7 +68,9 @@ const NewRoom = () => {
                     ? 'loading'
                     : data &&
                       data.map((hotel) => (
-                        <option key={hotel._id} value={hotel._id}>{hotel.name}</option>
+                        <option key={hotel._id} value={hotel._id}>
+                          {hotel.name}
+                        </option>
                       ))}
                 </select>
               </div>
